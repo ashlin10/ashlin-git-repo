@@ -1,2 +1,2 @@
 #My Repository
-This repository contains solved coding problems from hacktests, interviews and coding contests
+This repository contains solved problems from hacktests, coding tests and interviews
