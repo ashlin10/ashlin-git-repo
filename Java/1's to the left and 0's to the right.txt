@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+class apple{
+        public static void main(String[] args) {
+            String input;
+            System.out.println("Enter a string of 1's and 0's ");
+            Scanner obj = new Scanner(System.in);
+            input = obj.nextLine();
+            String arr1="",arr2="",arr3;
+            for (int i = 0; i <= input.length() - 1; i++) {
+                if (input.charAt(i) == '1')
+                    arr1 = arr1 + input.charAt(i);
+                else if (input.charAt(i) == '0')
+                    arr2 = arr2 + input.charAt(i);
+            }
+            arr3 = arr1 + arr2;
+            System.out.println(arr3);
+        }
+}

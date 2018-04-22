@@ -1,0 +1,22 @@
+package com.tutorial.mian;
+
+import java.util.Scanner;
+
+public class fruit {
+	public void mango() {
+	String str;
+ 	String rev = "";
+	System.out.println("Enter the string ");
+	Scanner num1 = new Scanner(System.in);
+	str = num1.nextLine();
+	int length = str.length();
+	for(int i = length-1; i>=0; i--) {
+		rev = rev + str.charAt(i);
+	}
+	System.out.println("The reversed string is "+rev);
+	}
+	public static void main(String args[]) {
+		fruit z = new fruit();
+		z.mango();
+	}
+}

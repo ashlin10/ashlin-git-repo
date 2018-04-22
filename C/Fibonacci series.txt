@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+    int length = 0, a[100];
+    a[0] = 0;
+    a[1] = 1;
+    printf("Enther the length of the fibonacci series\n");
+    scanf("%d",&length);
+    printf("The fibonacci series is\n");
+    printf("%d\n",a[0]);
+    printf("%d\n",a[1]);
+    for(int i = 2; i < length; i++)
+    {
+        a[i] = a[i-1] + a[i-2];
+        printf("%d\n",a[i]);
+    }
+}

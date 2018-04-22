@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+		void main()
+		{
+		     char s[100],r[100];
+		     int count=0, end=0, begin=0;
+		     printf("Enter the string\n");
+		     scanf("%s",&s);
+		     while(s[count] != '\0'){
+		         count++;
+		     }
+		     end = count - 1;
+		     for(begin; begin<count;begin++){
+		         r[begin] = s[end];
+		         end--;
+		     }
+		     r[begin] = '\0';
+		     printf("The reversed string is %s\n",r);
+		}

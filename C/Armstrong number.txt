@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+		void main()
+		{
+		    int temp1=0,count=0,num=0,arm=0,temp2=0,rem=0;
+			printf("Enter a number ");
+			scanf("%d",&num);
+			temp1 = num;
+			temp2 = num;
+			while(temp1!=0) {
+				temp1 = temp1 / 10;
+				count++;
+			}
+			while(temp2!=0) {
+				rem = temp2 % 10;
+				arm = arm + pow(rem, count);
+				temp2 = temp2 / 10;
+			}
+			if(num == arm) {
+				printf("The number is an armstrong number ");
+			}
+			else printf("The number is not an armstrong number ");
+		}

@@ -1,0 +1,24 @@
+package com.tutorial.mian;
+
+import java.util.Scanner;
+
+public class fruit {
+	public void mango() {
+		int a, b, c;
+		System.out.println("Enter the value of a ");
+		Scanner num1 = new Scanner(System.in);
+		a = num1.nextInt();
+		System.out.println("Enter the value of b ");
+		Scanner num2 = new Scanner(System.in);
+		b = num2.nextInt();
+		c = a;
+		a = b;
+		b = c;
+		System.out.println("The value of a is "+a);
+		System.out.println("The value of b is "+b);
+	}
+	public static void main(String args[]) {
+		fruit z = new fruit();
+		z.mango();
+	}
+}

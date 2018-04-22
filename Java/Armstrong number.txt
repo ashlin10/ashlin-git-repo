@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class fruit{
+	public void apple() {
+	int temp1=0,count=0,num=0,arm=0,temp2=0,rem=0;
+	System.out.println("Enter a number ");
+	Scanner num1 = new Scanner(System.in);
+	num = num1.nextInt();
+	temp1 = num;
+	temp2 = num;
+	while(temp1!=0) {
+		temp1 = temp1 / 10;
+		count++;
+	}
+	while(temp2!=0) {
+		rem = temp2 % 10;
+		arm = arm + (int)Math.pow(rem, count);
+		temp2 = temp2 / 10;
+	}
+	if(num == arm) {
+		System.out.println("The number is an armstrong number ");
+	}
+	else System.out.println("The number is not an armstrong number ");
+	}
+	public static void main(String args[]) {
+		fruit obj = new fruit();
+		obj.apple();
+	}
+}

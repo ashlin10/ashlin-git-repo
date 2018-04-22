@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+class apple{
+    public void orange(){
+        int[] fib = new int[100];
+        fib[0]=0;
+        fib[1]=1;
+        System.out.println("Enter the length of the fibonacci series ");
+        Scanner num1 = new Scanner(System.in);
+        int b = num1.nextInt();
+        System.out.println(fib[0]);
+        System.out.println(fib[1]);
+        for(int i=2;i<b;i++){
+            fib[i]=fib[i-1]+fib[i-2];
+            System.out.println(fib[i]);
+        }
+    }
+    public static void main(String args[]){
+        apple obj = new apple();
+        obj.orange();
+    }
+}

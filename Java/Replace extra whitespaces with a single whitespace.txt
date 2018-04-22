@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+class apple{
+        public static void main(String[] args) {
+            String input,output;
+            System.out.println("Enter a string ");
+            Scanner obj = new Scanner(System.in);
+            input = obj.nextLine();
+            output = input.trim().replaceAll("\\s{2,}"," ");
+            System.out.println(output);
+        }
+}
