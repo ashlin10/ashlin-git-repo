@@ -1,0 +1,9 @@
+
+  var offset = -100;
+  var speed = 300;
+$("#nav-home").on('click', function(e) {
+   e.preventDefault();
+   $('html, body').animate({
+        scrollTop: $("#Home").offset().top + offset
+     }, speed);
+});
