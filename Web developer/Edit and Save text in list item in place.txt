@@ -1,0 +1,34 @@
+/*Create an array of list items with class name "editItem"*/
+var edit = document.getElementsByClassName("editItem"); 
+
+/*Create edit button and add to list item*/  
+var editSpan = document.createElement("span");
+  var editButton = document.createElement("i");
+  editSpan.className = "editItem";
+  editButton.className = "fas fa-pencil-alt";
+  editSpan.appendChild(editButton);
+  listItem.appendChild(editSpan);
+  $(editButton).prop('title', 'Edit');
+
+/*Loop through the element contianing the 'editItem' class to edit the current parent 'li' element on clicking the current child editButton*/
+for (var j = 0; j < edit.length; j++) {
+      edit[j].onclick = function() {
+      var editParent = this.parentElement;
+      var editTextBoxAndUpdateSpan = document.createElement('span');
+      var editTextBox = document.createElement('input');
+      editTextBox.classList.add("newTextBox");
+      var updateSpan = document.createElement("span");
+      var updateButton = document.createElement("i");
+      updateSpan.className = "updateItem";
+      updateButton.className = "fas fa-save";
+      updateSpan.appendChild(updateButton);
+      $(updateSpan).prop('title', 'Save changes');
+      editTextBoxAndUpdateSpan.appendChild(editTextBox);
+      editTextBoxAndUpdateSpan.appendChild(updateSpan)
+      editParent.childNodes[0].replaceWith(editTextBoxAndUpdateSpan);
+      editTextBox.focus();
+      updateSpan.onclick = function(){
+        editParent.childNodes[0].replaceWith(editTextBox.value);
+      }
+    }
+  }
