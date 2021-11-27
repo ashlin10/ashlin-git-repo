@@ -44,16 +44,6 @@ else:
     print("Failed with fetch device inventory")
 
 
-
-
-# # Initialization
-#
-# device_dict = {'uuid': '', 'name': '', 'description': '', 'model': '',
-#                'healthStatus': '', 'sw_version': '', 'healthPolicy': '',
-#                'accessPolicy': '', 'hostName': '', 'license_caps': '',
-#                'ftdMode': '', 'domain': ''
-#                }
-
 # Write to .csv
 
 with open("Device Inventory.csv", "w") as f:
