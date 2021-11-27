@@ -41,7 +41,7 @@ r = response.json()
 if response.status_code == 200:
     print("Success")
 else:
-    print("Failed with fetch device inventory")
+    print("Failed to fetch device inventory")
 
 
 # Write to .csv
@@ -49,11 +49,10 @@ else:
 with open("Device Inventory.csv", "w") as f:
     w = csv.writer(f)
     my_list = r.get('items')
-
+    fields = {'id','name','description','model','healthStatus','sw_version','healthPolicy',
+              'accessPolicy','hostName','license_caps','ftdMode','metadata','domain'}
     for x in my_list:
-        for key in {'type','links','modelId','modelNumber','advanced','keepLocalEvents','prohibitPacketTransfer'}:
-            x.pop(key)
-            print(my_list)
+        [x.pop(key) for key in list(x.keys()) if key not in fields]
     w.writerow(my_list[0].keys())
     for x in my_list:
         w.writerow(x.values())
