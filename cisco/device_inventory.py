@@ -8,15 +8,10 @@ from getpass import getpass
 warnings.filterwarnings('ignore', message='Unverified HTTPS request')
 
 # Retrieve authtoken, refreshtoken and domain uuid
-'''
+
 address = input("Enter IP Address of the FMC: ")
 username = input("Enter Username: ")
 password = getpass("Enter Password: ")
-'''
-
-address = '10.106.49.51'
-username = 'admin1'
-password = 'cisco'
 
 
 api_uri = "/api/fmc_platform/v1/auth/generatetoken"
