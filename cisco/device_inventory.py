@@ -16,10 +16,6 @@ address = input("Enter IP Address of the FMC: ")
 username = input("Enter Username: ")
 password = getpass("Enter Password: ")
 
-# address = '10.106.49.51'
-# username = 'admin1'
-# password = 'cisco'
-
 
 # Authentication
 
@@ -32,7 +28,6 @@ def authentication():
         accesstoken = response.headers["X-auth-access-token"]
         refreshtoken = response.headers["X-auth-refresh-token"]
         DOMAIN_UUID = response.headers["DOMAIN_UUID"]
-
     except Exception:
         print(response.json().get('error').get('messages')[0].get('description'))
         sys.exit()
