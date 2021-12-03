@@ -56,15 +56,20 @@ def fetch_device_inventory(accesstoken,refreshtoken,DOMAIN_UUID):
 # Format fields
 
 def format_fields(pass_list):
-    fields = {'id','name','description','model','healthStatus','sw_version','healthPolicy',
-              'accessPolicy','hostName','license_caps','ftdMode','metadata'}
+    fields = {'id','name','model','healthStatus','sw_version','healthPolicy',
+              'accessPolicy','license_caps','ftdMode','metadata'}
     for x in pass_list:
         [x.pop(key) for key in list(x.keys()) if key not in fields]
         x['healthPolicy'] = x['healthPolicy']['name']
         x['accessPolicy'] = x['accessPolicy']['name']
         x['license_caps'] = ', '.join(x['license_caps'])
-        x['metadata'] = x['metadata']['domain']['name']
-        x['domain'] = x.pop('metadata')
+        x['domain'] = x['metadata']['domain']['name']
+        if float(x['sw_version'][0:3]) >= 6.7:
+            x['deviceSerialNumber'] = x['metadata']['deviceSerialNumber']
+            x['snortVersion'] = x['metadata']['snortVersion']
+            x['sruVersion'] = x['metadata']['sruVersion']
+            x['vdbVersion'] = x['metadata']['vdbVersion']
+        x.pop('metadata')
     return pass_list
 
 
@@ -75,8 +80,13 @@ def convert_to_csv(r):
         w = csv.writer(f)
         my_list = r.get('items')
         my_list = format_fields(my_list)
+        # Find largest element in list
+        max_element = 0
+        for x in range(len(my_list) - 1):
+            if len(my_list[x]) > max_element:
+                max_element = x
         # Print key
-        w.writerow(my_list[0].keys())
+        w.writerow(my_list[max_element].keys())
         # Print values
         for x in my_list:
             w.writerow(x.values())
@@ -86,7 +96,7 @@ def convert_to_csv(r):
 accesstoken,refreshtoken,DOMAIN_UUID = authentication()
 r = fetch_device_inventory(accesstoken,refreshtoken,DOMAIN_UUID)
 convert_to_csv(r)
-print("CSV file saved at " + os.getcwd())
+print("Output is saved with file named 'Device Inventory.csv' at " + os.getcwd())
 
 
 
